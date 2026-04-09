@@ -6,8 +6,6 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 function sourceCompletions() {
 	for completion in "$SCRIPT_DIR/$1/"*.sh; do
-		echo "$completion"
-		exit 1
 		source completion
 	done
 }
