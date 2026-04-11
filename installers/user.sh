@@ -15,8 +15,8 @@ if [[ -d "$HOME/.bashrc" ]]; then
     fi
 fi
 
-if [[ -d "$SCRIPT_DIR/.config/" ]]; then
-    cp -r "$SCRIPT_DIR/.config/*" "$HOME/.config/"
+if [[ -d "$SCRIPT_DIR/../.config/" ]]; then
+    cp -r "$SCRIPT_DIR/../.config/*" "$HOME/.config/"
 fi
 
 PS3="What do you want to be in your .bashrc file? "

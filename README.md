@@ -15,7 +15,7 @@ source "$HOME/.config/dotfiles/completions/completions.sh"
 ##### Or use the install script
 ```bash
 # for installation only for current user
-bash installers/users.sh
+bash installers/user.sh
 # run as root to set everything for root and all users
-bash installers/server.sh # For my installations
+bash installers/server.sh
 ```
