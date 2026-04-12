@@ -6,11 +6,11 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 function sourceCompletions() {
 	for completion in "$SCRIPT_DIR/$1/"*.sh; do
-		source completion
+		source "$completion"
 	done
 }
 
-if [[ -n "$ZSH_VERSION" ]]; then
+if [[ -n "${ZSH_VERSION:-}" ]]; then
 	sourceCompletions "zsh"
 elif [[ -n "$BASH_VERSION" ]]; then
 	sourceCompletions "bash"
