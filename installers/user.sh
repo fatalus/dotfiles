@@ -55,7 +55,11 @@ select type in "${types[@]}"; do
             break
             ;;
         *)
-            echo "Invalid type"
+            echo "Error: Invalid selection."
+            echo "Restoring changes from $HOME/.${CURRENT_SHELL}rc.bak ..."
+
+            mv "$HOME/.${CURRENT_SHELL}rc.bak" "$HOME/.${CURRENT_SHELL}rc"
+
             exit 1
             ;;
     esac
