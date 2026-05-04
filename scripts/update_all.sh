@@ -36,8 +36,12 @@ for dir in */ ; do
             fi
 
             # Dont install npm deps in non ddev projects => needs to happen in container
-            if [[ -f "$dir/package.json" ]] && [[ -e "$dir/.ddev" ]]; then
-                npm --prefix "$dir" install --silent > /dev/null 2>&1
+            if [[ -f "$dir/package.json" ]] && [[ ! -e "$dir/.ddev" ]]; then
+                if [[ -e "$dir/package-lock.json" ]]; then
+                    npm --prefix "$dir" install --silent > /dev/null 2>&1
+                elif [[ -e "$dir/bun.lock" ]]; then
+                    bun install --cwd "$dir" --silent > /dev/null 2>&1
+                fi
             fi
         else
             printf "%s%s has local changes that need to be resolved manually.%s\n" "$RED" "$dir" "$RESET"
