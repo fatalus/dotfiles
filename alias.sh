@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Exit if not an interactive shell
-[[ $- != *i* ]] && return
+[[ $- != *i* ]] && exit 
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -12,6 +12,12 @@ alias python='python3'
 alias onefetch='onefetch --nerd-fonts --include-hidden --no-bots'
 alias drush='ddev drush'
 alias laravel_clear='php artisan optimize && php artisan cache:clear && php artisan config:clear && php artisan route:clear && php artisan view:clear'
+
+LARAVEL_BIN_PATH="$HOME/.config/composer/vendor/bin/laravel"
+
+if [[ -e $LARAVEL_BIN_PATH ]]; then
+    alias laravel=LARAVEL_BIN_PATH
+fi
 
 # Source bash/zshrc
 if [[ -n "${ZSH_VERSION:-}" ]]; then
