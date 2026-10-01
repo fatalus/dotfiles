@@ -10,8 +10,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Load nvm and its completions
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+if [[ -e "$NVM_DIR" ]]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
 
 if [[ -n "${ZSH_VERSION:-}" ]]; then
   # Assuming leahneukirchen/lr was installed via make install
