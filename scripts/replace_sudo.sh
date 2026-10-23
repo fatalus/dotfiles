@@ -7,6 +7,9 @@ set -euo pipefail
 
 [ "$(id -u)" -ne 0 ] && echo "Please run as root user." && exit 1
 
+echo "This should definitely not be used, as it breaks many thngings, such as pikman or apt"
+exit 1
+
 SUDO_BIN="/usr/bin/sudo"
 SUDO_WRAPPER="/usr/bin/sudo_wrapper" # aka sudo-rs
 SUDO_ORIGINAL="/usr/bin/sudo_original"

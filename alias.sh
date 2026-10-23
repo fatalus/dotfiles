@@ -16,7 +16,7 @@ alias laravel_clear='php artisan optimize && php artisan cache:clear && php arti
 LARAVEL_BIN_PATH="$HOME/.config/composer/vendor/bin/laravel"
 
 if [[ -e $LARAVEL_BIN_PATH ]]; then
-    alias laravel=LARAVEL_BIN_PATH
+    alias laravel="$LARAVEL_BIN_PATH"
 fi
 
 # Source bash/zshrc
